@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceClear</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #textbox {
+            width: 300px;
+            height: 150px; /* 设置文本框的高度 */
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            resize: vertical; /* 可垂直调整大小 */
+        }
+        #submit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>SpaceClear</h1>
+    <form id="myForm" action="#">
+        <textarea id="textbox" placeholder="在这里输入文本"></textarea>
+        <br>
+        <button type="button" id="submit-btn">提交</button>
+    </form>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            var textbox = document.getElementById('textbox');
+            var cleanedText = textbox.value.replace(/\s+/g, ' ').trim(); // 去重所有的换行符和空格
+            textbox.value = cleanedText;
+            document.getElementById('myForm').submit(); // 提交表单
+        });
+    </script>
+</body>
+</html>
